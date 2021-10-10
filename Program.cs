@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ParallelTest
 {
-    class ParallelInvoke
+    class ParallelTest
     {
         static void Main()
         {
