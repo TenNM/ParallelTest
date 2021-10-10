@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -36,14 +33,17 @@ namespace ParallelTest
                 info = Console.ReadKey(true);
                 switch (info.Key)
                 {
-                    case ConsoleKey.P: w.Pause(); break;
-                    case ConsoleKey.R: w.Resume(); break;
+                    case ConsoleKey.P: w.Pause(); Console.WriteLine("pause"); break;
+                    case ConsoleKey.R: w.Resume(); Console.WriteLine("resume"); break;
+
+                    case ConsoleKey.OemPlus: w.PauseInterval += 500; Console.WriteLine(w.PauseInterval); break;
+                    case ConsoleKey.OemMinus: w.PauseInterval -= 500; Console.WriteLine(w.PauseInterval); break;
                 }
             }
             while (info.Key != ConsoleKey.S);
             w.Stop();
 
-            Console.WriteLine("Main there");
+            Console.WriteLine("Main here");
 
             Console.ReadKey();
 
