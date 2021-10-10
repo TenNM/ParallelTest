@@ -8,13 +8,13 @@ namespace ParallelTest
     {
         static void Main()
         {
-            Console.WriteLine("Method=Main, Thread={0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Main(), Thread={0}", Thread.CurrentThread.ManagedThreadId);
 
             Worker w = new Worker();
 
             try
             {
-                var v = Task.Factory.StartNew(
+                Task.Factory.StartNew(
                     () => w.DoWork()
                     );
                 //try it instead of Task.Factory.StartNew
@@ -33,8 +33,8 @@ namespace ParallelTest
                 info = Console.ReadKey(true);
                 switch (info.Key)
                 {
-                    case ConsoleKey.P: w.Pause(); Console.WriteLine("pause"); break;
-                    case ConsoleKey.R: w.Resume(); Console.WriteLine("resume"); break;
+                    case ConsoleKey.P: w.Pause(); Console.WriteLine("|| pause"); break;
+                    case ConsoleKey.R: w.Resume(); Console.WriteLine(" > resume"); break;
 
                     case ConsoleKey.OemPlus: w.PauseInterval += 250; Console.WriteLine(w.PauseInterval); break;
                     case ConsoleKey.OemMinus: w.PauseInterval -= 250; Console.WriteLine(w.PauseInterval); break;
