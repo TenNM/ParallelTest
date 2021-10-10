@@ -7,7 +7,7 @@ namespace ParallelTest
     {
         private bool justDoIt = true;
         private bool isPause = false;
-        private volatile uint pauseInterval = 1000;
+        private uint pauseInterval = 1000;
         internal uint PauseInterval
         {
             get { return pauseInterval; }

@@ -36,8 +36,8 @@ namespace ParallelTest
                     case ConsoleKey.P: w.Pause(); Console.WriteLine("pause"); break;
                     case ConsoleKey.R: w.Resume(); Console.WriteLine("resume"); break;
 
-                    case ConsoleKey.OemPlus: w.PauseInterval += 500; Console.WriteLine(w.PauseInterval); break;
-                    case ConsoleKey.OemMinus: w.PauseInterval -= 500; Console.WriteLine(w.PauseInterval); break;
+                    case ConsoleKey.OemPlus: w.PauseInterval += 250; Console.WriteLine(w.PauseInterval); break;
+                    case ConsoleKey.OemMinus: w.PauseInterval -= 250; Console.WriteLine(w.PauseInterval); break;
                 }
             }
             while (info.Key != ConsoleKey.S);
