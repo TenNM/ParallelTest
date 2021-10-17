@@ -8,11 +8,15 @@ namespace ParallelTest
     {
         private bool justDoIt = true;
         private bool isPause = false;
-        private uint pauseInterval = 1000;
-        internal uint PauseInterval
+        private int pauseInterval = 1000;
+        internal int PauseInterval
         {
             get { return pauseInterval; }
-            set { if (value > 100) pauseInterval = value; }
+            set
+            {
+                if (pauseInterval + value > 0) pauseInterval = value;
+                else pauseInterval = 0;
+            }
         }
         internal async void DoWork()
         {
@@ -25,7 +29,7 @@ namespace ParallelTest
                     continue;
                 }
                 Console.WriteLine(DateTime.Now);
-                await Task.Delay((int)pauseInterval);
+                await Task.Delay(pauseInterval);
             }
             Console.WriteLine("Work finished");
         }
