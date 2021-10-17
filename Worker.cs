@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ParallelTest
 {
@@ -13,18 +14,18 @@ namespace ParallelTest
             get { return pauseInterval; }
             set { if (value > 100) pauseInterval = value; }
         }
-        internal void DoWork()
+        internal async void DoWork()
         {
             Console.WriteLine("DoWork(), Thread={0}", Thread.CurrentThread.ManagedThreadId);
             while (justDoIt)
             {
                 if (isPause)
                 {
-                    Thread.Sleep(100);//try to comment it and check u cpu load on Pause();
+                    await Task.Delay(100);//try to comment it and check u cpu load on Pause();
                     continue;
                 }
                 Console.WriteLine(DateTime.Now);
-                Thread.Sleep((int)pauseInterval);
+                await Task.Delay((int)pauseInterval);
             }
             Console.WriteLine("Work finished");
         }
