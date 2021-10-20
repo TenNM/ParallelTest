@@ -19,7 +19,7 @@ namespace ParallelTest
                     );
                 //try it instead of Task.Factory.StartNew
                 //Parallel.Invoke(
-                //   () => w.DoWork(continueWork)
+                //   () => w.DoWork()
                 //);
             }
             catch (Exception e)
